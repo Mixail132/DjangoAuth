@@ -1,0 +1,17 @@
+services:
+  myauth:
+    image: django_auth
+    container_name: happyauth.myauth
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - NO_CACHE=true
+    volumes:
+      - .:/app
+    init: true
+    ports:
+      - "8000:8000"
+
+
+
