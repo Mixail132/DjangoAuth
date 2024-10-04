@@ -9,6 +9,7 @@ class DjangoConfig:
     secret_key: str
     su_name: str
     su_password: str
+    su_email: str
 
 
 @dataclass
@@ -24,6 +25,7 @@ def load_config() -> Config:
         django=DjangoConfig(
             secret_key=env.str("DJANGO_SECRETKEY"),
             su_name=env.str("DJANGO_SUPERUSER_NAME"),
-            su_password=str("DJANGO_SUPERUSER_PASSWORD")
+            su_password=env.str("DJANGO_SUPERUSER_PASSWORD"),
+            su_email=env.str("DJANGO_SUPERUSER_EMAIL"),
         ),
     )
